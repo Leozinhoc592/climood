@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  background-color: #fcd6e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  height: 60px;
+}
+
+.logo {
+  height: 240px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 3em #646cffaa);
+  transform: scale(1.05);
+}
+header .nav {
+  display: flex;
+}
+
+header .nav li {
+  list-style: none;
+  margin: 0 3rem;
+}
+
+header .nav a {
+  text-decoration: none;
+  color: #f15ca2;
+} 
+
+.termometro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.2rem;
+}
+
+.termometro-imagem {
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.termometro-imagem:hover {
+  filter: drop-shadow(0 0 3em #646cffaa);
+  transform: scale(1.05);
+}
