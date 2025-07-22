@@ -2,7 +2,18 @@ import React from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
 
 const Roleta = () => (
-  <div style={{ width: '300px', height: '300px', margin: 'auto', marginTop: '50px', background: '#eee' }}>
+  <div style={{
+    width: '300px',
+    height: '400px',
+    borderRadius: '20px',
+    margin: 'auto',
+    marginTop: '50px',
+    background: '#ffd4ec',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center', // 🔥 centraliza verticalmente a roleta
+    alignItems: 'center'      // 🔥 centraliza horizontalmente a roleta
+  }}>
     <CircularSlider
       width={280}
       label="Humor"
@@ -15,5 +26,6 @@ const Roleta = () => (
     />
   </div>
 );
+
 
 export default Roleta;
