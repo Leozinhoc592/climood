@@ -62,3 +62,23 @@ header .nav a {
   filter: drop-shadow(0 0 3em #646cffaa);
   transform: scale(1.05);
 }
+.main-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.pergunta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.perguntas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
