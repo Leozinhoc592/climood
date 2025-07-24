@@ -11,8 +11,8 @@ const Roleta = () => (
     background: '#ffd4ec',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center', // 🔥 centraliza verticalmente a roleta
-    alignItems: 'center'      // 🔥 centraliza horizontalmente a roleta
+    justifyContent: 'center', 
+    alignItems: 'center'      
   }}>
     <CircularSlider
       width={280}
