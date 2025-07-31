@@ -14,21 +14,11 @@ const Temperatura = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Carregando clima...</p>;
-  if (!data) return <p>Erro ao carregar dados.</p>;
+  if (loading) return <>Carregando...</>;
+  if (!data) return <>Erro</>;
 
-  return (
-    <div>
-      <h2>Temperatura por hora</h2>
-      <ul>
-        {data.time.map((time, index) => (
-          <li key={index}>
-            {new Date(time).toLocaleString()} - {data.temperature_2m[index]}°C
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const temperaturaAgora = data.temperature_2m[0];
+  return <>{temperaturaAgora}°C</>;
 };
 
 export default Temperatura;

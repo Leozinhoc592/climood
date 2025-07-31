@@ -10,8 +10,6 @@ const Header = () => {
       {/* outros elementos */}
       <nav>
         <ul className="nav">
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Sobre</a></li>
           <li><a href="#"><Termometro/></a></li>
         </ul>
       </nav>

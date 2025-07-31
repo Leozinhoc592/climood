@@ -1,20 +1,26 @@
+/* === GERAL === */
+
 body {
   margin: 0;
   background-color: #fcd6e8;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  min-height: 100vh;
 }
 
 html, body, #root {
   height: 100%;
   width: 100%;
+  background-color: #fcd6e8;
 }
 
+/* === HEADER === */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   background-color: white;
@@ -32,6 +38,7 @@ header {
   filter: drop-shadow(0 0 3em #646cffaa);
   transform: scale(1.05);
 }
+
 header .nav {
   display: flex;
 }
@@ -42,54 +49,90 @@ header .nav li {
 }
 
 header .nav a {
-  text-decoration: none;
-  color: #f15ca2;
-} 
+  font-size: 0.8rem;
+  color: #333;
+  margin-left: 6px;
+  vertical-align: middle;
+  font-weight: 500;
+}
 
+/* === TERMÔMETRO === */
 .termometro-container {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
-  margin-top: 0.2rem;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
 }
 
 .termometro-imagem {
-  height: 80px;
-  transition: transform 0.3s ease;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .termometro-imagem:hover {
   filter: drop-shadow(0 0 3em #646cffaa);
   transform: scale(1.05);
 }
+
+.temperatura-texto {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* === CONTAINER PRINCIPAL AJUSTADO === */
 .main-container {
-  display: flex;
-  flex-direction: row;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 2rem;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.pergunta {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-.perguntas-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 3rem 2rem;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  gap: 0rem;
+  min-height: calc(100vh - 100px); /* ocupa altura menos header + margem */
+}
+
+
+/* === BLOCOS DE PERGUNTAS === */
+.perguntas-container {
+  background-color: #ffe2f0;
+  color: #3a1f3e;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
   text-align: center;
-  gap: 2rem;
-  margin-top: 40px;
-  margin-right: 50px;
-  background-color: #ffd4ec;
-  border-radius: 20px;   
-  padding: 2rem 3rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-  width: 250px;              
-  max-width: 90%;             
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.pergunta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .main-container {
+    width: 90%;
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .perguntas-container {
+    padding: 1.5rem;
+  }
 }

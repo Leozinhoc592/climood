@@ -3,16 +3,14 @@ import CircularSlider from '@fseehawer/react-circular-slider';
 
 const Roleta = () => (
   <div style={{
-    width: '300px',
-    height: '400px',
-    borderRadius: '20px',
-    margin: 'auto',
-    marginTop: '50px',
-    background: '#ffd4ec',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center', 
-    alignItems: 'center'      
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.5rem',
+    padding: '2rem',
+    width: '100%',
+    maxWidth: '300px',
   }}>
     <CircularSlider
       width={280}
@@ -26,6 +24,5 @@ const Roleta = () => (
     />
   </div>
 );
-
 
 export default Roleta;

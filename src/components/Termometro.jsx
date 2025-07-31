@@ -6,7 +6,7 @@ import Temperatura from "./Temperatura";
 const Termometro = () => {
   return (
     <div className="termometro-container">
-      <img src={logo} alt="Termômetro" className="termometro-imagem" /><h1><Temperatura/></h1>
+      <img src={logo} alt="Termômetro" className="termometro-imagem" /><span className="temperatura-texto"><Temperatura/></span>
 
     </div>
   );
