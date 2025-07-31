@@ -1,7 +1,6 @@
-import React from "react";
 import HorasDormidas from './HorasDormidas';
 
-const Perguntas = () => {
+const Perguntas = ({ onEnviar }) => {
   return (
     <div className="perguntas-container">
       <div className="pergunta">
@@ -14,9 +13,13 @@ const Perguntas = () => {
         <p>Quantas horas em média você dormiu?</p>
         <HorasDormidas />
       </div>
+
+      <div>
+        <button type="button" onClick={onEnviar}>Enviar</button>
+      </div>
     </div>
   );
 };
 
-
 export default Perguntas;
+
