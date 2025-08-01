@@ -1,13 +1,13 @@
 import React from "react";
 
-const BlocoDia = () => {
+const BlocoDia = ({ children }) => {
 
 return(
 
     <div className="BlocoDia">
-    <span>teste</span>
+    <span>{children}</span>
     </div>
-)
+);
 
 }
 
