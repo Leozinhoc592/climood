@@ -15,9 +15,20 @@ const Perguntas = ({ onEnviar }) => {
     const registro = {
       humor: emojiSelecionado,
       dormiu: horasDormidas,
-      trabalhou: trabalhou === "Sim"
+      trabalhou: trabalhou === "Sim",
+      data: new Date().toISOString()
     };
 
+
+    const registrosExistentes = JSON.parse(localStorage.getItem('registros') || '[]');
+
+
+    registrosExistentes.push(registro);
+
+ 
+    localStorage.setItem('registros', JSON.stringify(registrosExistentes));
+
+  
     onEnviar(registro);     
   };
 
@@ -51,9 +62,8 @@ const Perguntas = ({ onEnviar }) => {
         <p>Quantas horas em média você dormiu?</p>
         <HorasDormidas
           value={horasDormidas}
-          onChange={(value) => setHorasDormidas(value)}
+          onChange={setHorasDormidas}
         />
-        <p>{horasDormidas} horas</p>
       </div>
 
       <div>
@@ -62,3 +72,5 @@ const Perguntas = ({ onEnviar }) => {
     </div>
   );
 };
+
+export default Perguntas;
