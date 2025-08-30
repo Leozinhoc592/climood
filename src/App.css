@@ -126,6 +126,8 @@ header .nav a {
 }
 
 .BlocoMes {
+  text-align: center;
+  font-size: 10px;
   padding: 20px;
 }
 

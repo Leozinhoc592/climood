@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import HorasDormidas from './HorasDormidas';
 
+function pad(n) {
+  return String(n).padStart(2, '0');
+}
+
 const Perguntas = ({ onEnviar }) => {
   const [trabalhou, setTrabalhou] = useState(null);
   const [horasDormidas, setHorasDormidas] = useState(8);
@@ -11,25 +15,24 @@ const Perguntas = ({ onEnviar }) => {
       return;
     }
 
-    const emojiSelecionado = "😐"; 
+    const emojiSelecionado = "😐";  // trocar assim que possivel
+
+    const agora = new Date();
+    const dataFormatada = `${agora.getFullYear()}-${pad(agora.getMonth()+1)}-${pad(agora.getDate())}`;
+
     const registro = {
       humor: emojiSelecionado,
       dormiu: horasDormidas,
       trabalhou: trabalhou === "Sim",
-      data: new Date().toISOString()
+      data: dataFormatada
     };
 
-
+    // salvar
     const registrosExistentes = JSON.parse(localStorage.getItem('registros') || '[]');
-
-
     registrosExistentes.push(registro);
-
- 
     localStorage.setItem('registros', JSON.stringify(registrosExistentes));
 
-  
-    onEnviar(registro);     
+    onEnviar(registro);
   };
 
   return (

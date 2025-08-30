@@ -1,0 +1,9 @@
+.BlocoDia.ativo {
+  background-color: #f079f4;
+  color: white;
+}
+.BlocoDia.apagado {
+  background-color: #777;
+  color: #eaeaea;
+  opacity: 0.65;
+}
