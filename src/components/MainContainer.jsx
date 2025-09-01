@@ -17,12 +17,12 @@ const MainContainer = () => {
       )}
       {Status == "Registros" &&(
         <>
-          <ListaRegistros />
+          <ListaRegistros  onSelecionar={() => setStatus("RegistroSelecionado")} />
         </>
       )}
       {Status == "RegistroSelecionado" &&(
         <>
-          <ListaRegistros />
+          <ListaRegistros/>
           <InfoRegistro />
         </>
       )}

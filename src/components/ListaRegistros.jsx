@@ -4,7 +4,7 @@ import BlocoDia from "./BlocoDia";
 
 function pad(n){ return String(n).padStart(2, '0'); }
 
-const ListaRegistros = () => {
+const ListaRegistros = ({ onSelecionar = () => {} }) => {
   const dataAtual = new Date();
   const mesAtual = dataAtual.getMonth(); 
   const anoAtual = dataAtual.getFullYear();
@@ -38,7 +38,7 @@ const ListaRegistros = () => {
   const abrirRegistro = (dia) => {
     const r = encontrarRegistroDoDia(dia);
     if (!r) return;
-    
+    onSelecionar(r);
     alert(`Registro de ${r.data}\n\nHumor: ${r.humor}\nDormiu: ${r.dormiu}\nTrabalhou: ${r.trabalhou ? 'Sim' : 'Não'}`);
    
   };
