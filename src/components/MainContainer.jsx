@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Roleta from "./Roleta";
 import Perguntas from "./Perguntas";
 import ListaRegistros from "./ListaRegistros";
 import InfoRegistro from "./InfoRegistro";
-const MainContainer = () => {
+const MainContainer = ({onMostrarInfo}) => {
   const [Status, setStatus] = useState("Perguntas");
-  const [RegsS, setRegS] = useState(false);
+  
+  useEffect(() => {
+    if (Status === "RegistroSelecionado") {
+      onMostrarInfo?.();
+    }
+  }, [Status, onMostrarInfo]);
+
+
 
   return (
     <div className="main-container">
@@ -18,12 +25,6 @@ const MainContainer = () => {
       {Status == "Registros" &&(
         <>
           <ListaRegistros  onSelecionar={() => setStatus("RegistroSelecionado")} />
-        </>
-      )}
-      {Status == "RegistroSelecionado" &&(
-        <>
-          <ListaRegistros/>
-          <InfoRegistro />
         </>
       )}
     </div>
