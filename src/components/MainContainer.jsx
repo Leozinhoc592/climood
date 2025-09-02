@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Roleta from "./Roleta";
 import Perguntas from "./Perguntas";
 import ListaRegistros from "./ListaRegistros";
-import InfoRegistro from "./InfoRegistro";
-const MainContainer = ({onMostrarInfo}) => {
-  const [Status, setStatus] = useState("Perguntas");
-  
-  useEffect(() => {
-    if (Status === "RegistroSelecionado") {
-      onMostrarInfo?.();
-    }
-  }, [Status, onMostrarInfo]);
 
-
+const MainContainer = ({ onRegistroSelecionado, status, onStatusChange }) => {
+ 
 
   return (
     <div className="main-container">
-      {Status == "Perguntas" &&(
+      {status === "Perguntas" && (
         <>
           <Roleta />
-          <Perguntas onEnviar={() => setStatus("Registros")} />
+          <Perguntas onEnviar={() => onStatusChange("Registros")} />
         </>
       )}
-      {Status == "Registros" &&(
-        <>
-          <ListaRegistros  onSelecionar={() => setStatus("RegistroSelecionado")} />
-        </>
+
+      {status === "Registros" && (
+        <ListaRegistros onSelecionar={onRegistroSelecionado} />
       )}
     </div>
   );
