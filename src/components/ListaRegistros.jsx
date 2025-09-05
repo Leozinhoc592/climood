@@ -5,11 +5,13 @@ function pad(n) {
   return String(n).padStart(2, "0");
 }
 
-const ListaRegistros = ({ onSelecionar = () => {} }) => {
+const ListaRegistros = ({ onSelecionar = () => {}, mes }) => {
   const dataAtual = new Date();
-  const mesAtual = dataAtual.getMonth();
   const anoAtual = dataAtual.getFullYear();
-  const ultimoDiaMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+
+  
+  const mesSelecionado = mes - 1;
+  const ultimoDiaMes = new Date(anoAtual, mesSelecionado + 1, 0).getDate();
 
   const [registros, setRegistros] = useState([]);
 
@@ -23,7 +25,7 @@ const ListaRegistros = ({ onSelecionar = () => {} }) => {
   };
 
   const encontrarRegistroDoDia = (dia) => {
-    const chave = formatDateKey(anoAtual, mesAtual, dia);
+    const chave = formatDateKey(anoAtual, mesSelecionado, dia);
 
     return (
       registros.find((r) => {
@@ -35,7 +37,7 @@ const ListaRegistros = ({ onSelecionar = () => {} }) => {
         if (isNaN(d)) return false;
         return (
           d.getFullYear() === anoAtual &&
-          d.getMonth() === mesAtual &&
+          d.getMonth() === mesSelecionado &&
           d.getDate() === dia
         );
       }) || null
@@ -45,14 +47,15 @@ const ListaRegistros = ({ onSelecionar = () => {} }) => {
   const abrirRegistro = (dia) => {
     const r = encontrarRegistroDoDia(dia);
     if (!r) return;
-    onSelecionar(r); // envia para o MainContainer / App
+    onSelecionar(r); 
   };
 
   return (
     <div className="BlocoMes">
       <h1>
         Registros -{" "}
-        {dataAtual.toLocaleString("default", { month: "long" })} {anoAtual}
+        {new Date(anoAtual, mesSelecionado).toLocaleString("default", { month: "long" })}{" "}
+        {anoAtual}
       </h1>
       <div className="dias-container" style={{ display: "flex", flexWrap: "wrap" }}>
         {Array.from({ length: ultimoDiaMes }).map((_, i) => {

@@ -1,6 +1,6 @@
-// BlocoDia.jsx
+
 import React from "react";
-import './BlocoDia.css'; // supondo que você tenha classes CSS
+import './BlocoDia.css';
 
 const BlocoDia = ({ dia, preenchido, onClick }) => {
   return (

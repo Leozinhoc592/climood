@@ -3,7 +3,7 @@ import Roleta from "./Roleta";
 import Perguntas from "./Perguntas";
 import ListaRegistros from "./ListaRegistros";
 
-const MainContainer = ({ onRegistroSelecionado, status, onStatusChange }) => {
+const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) => {
  
 
   return (
@@ -16,7 +16,7 @@ const MainContainer = ({ onRegistroSelecionado, status, onStatusChange }) => {
       )}
 
       {status === "Registros" && (
-        <ListaRegistros onSelecionar={onRegistroSelecionado} />
+        <ListaRegistros onSelecionar={onRegistroSelecionado} mes={mes} />
       )}
     </div>
   );

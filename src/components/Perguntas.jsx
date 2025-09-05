@@ -15,7 +15,7 @@ const Perguntas = ({ onEnviar }) => {
       return;
     }
 
-    const emojiSelecionado = "😐";  // trocar assim que possivel
+    const emojiSelecionado = "😐";  
 
     const agora = new Date();
     const dataFormatada = `${agora.getFullYear()}-${pad(agora.getMonth()+1)}-${pad(agora.getDate())}`;
@@ -27,7 +27,7 @@ const Perguntas = ({ onEnviar }) => {
       data: dataFormatada
     };
 
-    // salvar
+    
     const registrosExistentes = JSON.parse(localStorage.getItem('registros') || '[]');
     registrosExistentes.push(registro);
     localStorage.setItem('registros', JSON.stringify(registrosExistentes));
