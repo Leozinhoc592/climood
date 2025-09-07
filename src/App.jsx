@@ -6,43 +6,60 @@ import InfoRegistro from "./components/InfoRegistro";
 import SeletorMes from "./components/SeletorMes";
 
 function App() {
-
   const date = new Date();
   const mesAtual = date.getMonth() + 1;
 
   const [registroSelecionado, setRegistroSelecionado] = useState(null);
   const [statusMain, setStatusMain] = useState("Perguntas");
-  const [MesSelecionado, setMesSelecionado] = useState(mesAtual)
+  const [MesSelecionado, setMesSelecionado] = useState(mesAtual);
 
   const handleRegistroSelecionado = (registro) => {
     setRegistroSelecionado(registro);
   };
 
+
+  const handleStatusChange = (novoStatus) => {
+    setStatusMain(novoStatus);
+    if (novoStatus === "Perguntas") {
+      setRegistroSelecionado(null);
+    }
+  };
+
   return (
     <>
       <Header 
-      onMudarStatus={setStatusMain}
-      statusAtual={statusMain} 
+        onMudarStatus={handleStatusChange} 
+        statusAtual={statusMain} 
       />
 
       <div className="app-container">
 
+    
         {statusMain === "Registros" && (
           <SeletorMes 
-          mesAtual = {MesSelecionado} 
-          onSelecionarMes={setMesSelecionado} />
+            mesAtual={MesSelecionado} 
+            onSelecionarMes={setMesSelecionado} 
+          />
         )}
 
+
         <MainContainer 
-        onRegistroSelecionado={handleRegistroSelecionado}
-        status={statusMain}
-        onStatusChange={setStatusMain}
-        mes={MesSelecionado}
+          onRegistroSelecionado={handleRegistroSelecionado}
+          status={statusMain}
+          onStatusChange={handleStatusChange} 
+          mes={MesSelecionado}
         />
-        
-        {registroSelecionado && (
+
+
+        {statusMain === "Registros" && !registroSelecionado && (
+          <div className="spacer" />
+        )}
+
+
+        {registroSelecionado && statusMain !== "Perguntas" && (
           <InfoRegistro registro={registroSelecionado} />
         )}
+
       </div>
     </>
   );

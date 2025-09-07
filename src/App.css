@@ -86,29 +86,38 @@ header .nav a {
 }
 
 
+
 .app-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* centraliza horizontalmente */
-  align-items: flex-start;
+  display: grid;
+  grid-auto-flow: column; 
+  justify-content: center;
+  align-items: start;
   gap: 30px;
   padding: 40px;
   box-sizing: border-box;
 }
+.spacer {
+  width: 280px;
+  height: 0;
+  visibility: hidden; 
+}
+.header .logo {
+  cursor: pointer;
+}
 
 .main-container {
-  flex: 0 1 450px; 
+  width: 450px;
+  flex-shrink: 0;
   padding: 1rem 1.5rem;
   background-color: white;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center; 
   justify-content: flex-start;
   text-align: center;
 }
-
 
 
 .info-registro {
@@ -197,13 +206,11 @@ header .nav a {
 }
 
 
-
 .dias-container {
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  gap: 8px;
-  justify-content: center; 
-  margin-bottom: 20px;
+  grid-template-columns: repeat(7, 60px); /* 7 dias por linha */
+  gap: 10px;
+  justify-content: center;
 }
 
 .BlocoDia {
@@ -227,12 +234,7 @@ header .nav a {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.dias-container {
-  display: grid;
-  grid-template-columns: repeat(8, 60px); 
-  gap: 10px;
-  justify-content: center;
-}
+
 
 
 
