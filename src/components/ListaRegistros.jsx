@@ -26,22 +26,21 @@ const ListaRegistros = ({ onSelecionar = () => {}, mes }) => {
 
   const encontrarRegistroDoDia = (dia) => {
     const chave = formatDateKey(anoAtual, mesSelecionado, dia);
-
-    return (
-      registros.find((r) => {
-        if (!r || !r.data) return false;
-        if (r.data === chave) return true;
-        if (typeof r.data === "string" && r.data.startsWith(chave)) return true;
-
-        const d = new Date(r.data);
-        if (isNaN(d)) return false;
-        return (
-          d.getFullYear() === anoAtual &&
-          d.getMonth() === mesSelecionado &&
-          d.getDate() === dia
-        );
-      }) || null
-    );
+    
+    return registros.find((r) => {
+      if (!r || !r.data) return false;
+      
+    
+      const dataRegistro = new Date(r.data);
+      if (isNaN(dataRegistro)) return false;
+      
+    
+      return (
+        dataRegistro.getFullYear() === anoAtual &&
+        dataRegistro.getMonth() === mesSelecionado &&
+        dataRegistro.getDate() === dia
+      );
+    }) || null;
   };
 
   const abrirRegistro = (dia) => {
