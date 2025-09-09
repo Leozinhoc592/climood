@@ -9,6 +9,7 @@ function App() {
   const date = new Date();
   const mesAtual = date.getMonth() + 1;
 
+
   const [registroSelecionado, setRegistroSelecionado] = useState(null);
   const [statusMain, setStatusMain] = useState("Perguntas");
   const [MesSelecionado, setMesSelecionado] = useState(mesAtual);
