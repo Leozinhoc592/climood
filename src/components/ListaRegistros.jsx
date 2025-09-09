@@ -14,7 +14,7 @@ const ListaRegistros = ({ onSelecionar = () => {}, mes }) => {
   const ultimoDiaMes = new Date(anoAtual, mesSelecionado + 1, 0).getDate();
 
   const [registros, setRegistros] = useState([]);
-
+  
   useEffect(() => {
     const arr = JSON.parse(localStorage.getItem("registros") || "[]");
     setRegistros(arr);
