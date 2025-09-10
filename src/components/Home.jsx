@@ -32,11 +32,11 @@ const Home = ({ setStatus }) => {
               <h3>📊 Registro Diário</h3>
               <p>Clique aqui para fazer seu registro diario</p>
             </div>
-            <div className="feature">
+            <div className="feature" onClick={handleRegistroEstatisticas}>
               <h3>📈 Estatísticas</h3>
               <p>Veja gráficos e insights sobre sua rotina</p>
             </div>
-            <div className="feature">
+            <div className="feature" onClick={handleRegistroMetas}>
               <h3>🎯 Metas</h3>
               <p>Acompanhe seu progresso e melhore seus hábitos</p>
             </div>
