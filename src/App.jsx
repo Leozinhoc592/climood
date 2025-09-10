@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import MainContainer from "./components/MainContainer";
 import InfoRegistro from "./components/InfoRegistro";
 import SeletorMes from "./components/SeletorMes";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const date = new Date();
@@ -11,7 +12,7 @@ function App() {
 
 
   const [registroSelecionado, setRegistroSelecionado] = useState(null);
-  const [statusMain, setStatusMain] = useState("Perguntas");
+  const [statusMain, setStatusMain] = useState("Home");
   const [MesSelecionado, setMesSelecionado] = useState(mesAtual);
 
   const handleRegistroSelecionado = (registro) => {
@@ -21,10 +22,11 @@ function App() {
 
   const handleStatusChange = (novoStatus) => {
     setStatusMain(novoStatus);
-    if (novoStatus === "Perguntas") {
+    if (novoStatus === "Home" || novoStatus === "Perguntas") {
       setRegistroSelecionado(null);
     }
   };
+
 
   return (
     <>

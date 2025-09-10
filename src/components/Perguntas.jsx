@@ -18,7 +18,12 @@ const Perguntas = ({ onEnviar }) => {
     const emojiSelecionado = "😐";  
 
     const agora = new Date();
-    const dataFormatada = `${agora.getFullYear()}-${pad(agora.getMonth()+1)}-${pad(agora.getDate())}`;
+    const dataFormatada = new Date(Date.UTC(
+    agora.getFullYear(),
+    agora.getMonth(), 
+    agora.getDate(),
+    12, 0, 0  
+  )).toISOString().split('T')[0];
 
     const registro = {
       humor: emojiSelecionado,

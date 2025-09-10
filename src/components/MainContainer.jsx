@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Roleta from "./Roleta";
 import Perguntas from "./Perguntas";
 import ListaRegistros from "./ListaRegistros";
+import Home from './Home';
 
 const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) => {
  
@@ -17,6 +18,9 @@ const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) =
 
       {status === "Registros" && (
         <ListaRegistros onSelecionar={onRegistroSelecionado} mes={mes} />
+      )}
+      {status === "Home" && (
+        <Home />
       )}
     </div>
   );

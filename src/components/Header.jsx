@@ -7,12 +7,12 @@ import Relatorio from '../assets/relatorio.png';
 
 const Header = ({ onMudarStatus, statusAtual }) => {
   return (
-    <header className="header">
-      <Titulo onClick={() => onMudarStatus("Perguntas")} />
+    <header className="custom-header">
+      <Titulo onClick={() => onMudarStatus("Home")} />
 
       <nav>
         <ul className='MenuCentral'>
-          <li><a href="#"><img src={Calendario} alt="Calendario" /></a></li>
+          <li onClick={() => onMudarStatus("Registros")} ><a href="#"><img src={Calendario} alt="Calendario" /></a></li>
           <li><a href="#"><img src={Relatorio} alt="Relatorio" /></a></li>
           <li><a href="#"><img src={Enviar} alt="Enviar" /></a></li>
         </ul>

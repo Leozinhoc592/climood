@@ -8,7 +8,7 @@ function pad(n) {
 const ListaRegistros = ({ onSelecionar = () => {}, mes }) => {
   const dataAtual = new Date();
   const anoAtual = dataAtual.getFullYear();
-
+  
   
   const mesSelecionado = mes - 1;
   const ultimoDiaMes = new Date(anoAtual, mesSelecionado + 1, 0).getDate();
@@ -25,20 +25,20 @@ const ListaRegistros = ({ onSelecionar = () => {}, mes }) => {
   };
 
   const encontrarRegistroDoDia = (dia) => {
-    const chave = formatDateKey(anoAtual, mesSelecionado, dia);
-    
     return registros.find((r) => {
       if (!r || !r.data) return false;
       
-    
+  
+      const dataParaComparar = new Date(Date.UTC(anoAtual, mesSelecionado, dia, 12, 0, 0));
       const dataRegistro = new Date(r.data);
+      
       if (isNaN(dataRegistro)) return false;
       
-    
+
       return (
-        dataRegistro.getFullYear() === anoAtual &&
-        dataRegistro.getMonth() === mesSelecionado &&
-        dataRegistro.getDate() === dia
+        dataRegistro.getUTCFullYear() === dataParaComparar.getUTCFullYear() &&
+        dataRegistro.getUTCMonth() === dataParaComparar.getUTCMonth() &&
+        dataRegistro.getUTCDate() === dataParaComparar.getUTCDate()
       );
     }) || null;
   };
