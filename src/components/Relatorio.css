@@ -1,0 +1,143 @@
+.relatorio-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9cfe0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(239, 91, 156, 0.15);
+}
+
+
+.relatorio-container h2 {
+  color: #3a1f3e;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.relatorio-container p {
+  color: #5a3a5a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.perguntas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pergunta-item {
+  background: linear-gradient(to bottom, #f9cfe0, #f6b1cb);
+  border-left: 4px solid #ef5b9c;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 5px 15px rgba(239, 91, 156, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pergunta-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(239, 91, 156, 0.2);
+}
+
+.pergunta-texto {
+  font-size: 1rem;
+  color: #3a1f3e;
+  margin-bottom: 10px;
+}
+
+.pergunta-opcoes {
+  display: flex;
+  gap: 15px;
+}
+
+.pergunta-opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #5a3a5a;
+}
+
+.relatorio-btn {
+  display: block;
+  margin: 90px auto 0 auto;
+  padding: 12px 25px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(239, 91, 156, 0.3);
+}
+
+.relatorio-btn:hover {
+  background-color: #f9ca3f5e;
+  box-shadow: 0 6px 15px rgba(239, 91, 156, 0.4);
+}
+
+/* Adicione estas classes ao seu arquivo CSS existente */
+.opcoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 24px;
+}
+
+.opcao-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+}
+
+.opcao-label:hover {
+  background-color: #fbcfe8;
+  transform: translateY(-2px);
+}
+
+.opcao-texto {
+  font-size: 18px;
+  font-weight: 600;
+  color: #831843;
+}
+
+.opcao-radio {
+  width: 20px;
+  height: 20px;
+}
+
+.botao-desabilitado {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botao-habilitado {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .relatorio-container {
+    padding: 20px;
+  }
+  .perguntas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pergunta-opcoes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

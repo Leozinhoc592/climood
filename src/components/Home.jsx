@@ -8,6 +8,7 @@ const Home = ({ setStatus }) => {
     setStatus("Perguntas");
 
   };
+
   return (
     <div className="home-container"> 
       <div className="home-content">

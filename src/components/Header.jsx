@@ -15,23 +15,25 @@ const Header = ({ onMudarStatus }) => {
 
       <nav>
         <ul className="MenuCentral">
-          <li onClick={() => onMudarStatus("Registros")}>
+          <li>
             <a href="#">
               <img
                 src={Calendario}
                 alt="Calendario"
                 onMouseOver={e => (e.currentTarget.src = CalendarioHover)}
                 onMouseOut={e => (e.currentTarget.src = Calendario)}
+                onClick={() => onMudarStatus("Registros")}
               />
             </a>
           </li>
-          <li>
+          <li >
             <a href="#">
               <img
                 src={Relatorio}
                 alt="Relatorio"
                 onMouseOver={e => (e.currentTarget.src = RelatorioHover)}
                 onMouseOut={e => (e.currentTarget.src = Relatorio)}
+                onClick={() => onMudarStatus("Relatorio")}
               />
             </a>
           </li>
@@ -42,6 +44,7 @@ const Header = ({ onMudarStatus }) => {
                 alt="Enviar"
                 onMouseOver={e => (e.currentTarget.src = EnviarHover)}
                 onMouseOut={e => (e.currentTarget.src = Enviar)}
+                onClick={() => onMudarStatus("Enviar")}
               />
             </a>
           </li>

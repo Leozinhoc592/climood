@@ -221,10 +221,6 @@ header.custom-header .nav svg {
   transition: background-color 0.2s ease;
 }
 
-.MenuCentral li:hover{
-  background-color: #f6b1cb;
-}
-
 
 .dias-container {
   display: grid;
