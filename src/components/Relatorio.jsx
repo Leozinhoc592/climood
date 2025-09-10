@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NextButton from "../assets/next.png";
 import SaveButton from "../assets/salvar.png";
+import './Relatorio.css';
 
 const perguntas = [
   "Você tem se sentido triste com frequência?",
@@ -69,12 +70,7 @@ export default function Relatorio() {
             >
               Sim, preencher novamente
             </button>
-            <button
-              onClick={voltarParaHome}
-              className="relatorio-btn"
-            >
-              Não, voltar para Home
-            </button>
+
           </div>
         </>
       ) : atual === -1 ? (
