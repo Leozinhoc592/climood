@@ -8,6 +8,14 @@ const Home = ({ setStatus }) => {
     setStatus("Perguntas");
 
   };
+  const handleRegistroEstatisticas = () => {
+    setStatus("Estatisticas");
+
+  };
+  const handleRegistroMetas = () => {
+    setStatus("Metas");
+
+  };
 
   return (
     <div className="home-container"> 
