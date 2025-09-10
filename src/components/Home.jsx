@@ -2,7 +2,12 @@ import React from 'react';
 import CarouselHome from './CarouselHome';
 import './Home.css'; 
 
-const Home = () => {
+const Home = ({ setStatus }) => {
+
+  const handleRegistroDiario = () => {
+    setStatus("Perguntas");
+
+  };
   return (
     <div className="home-container"> 
       <div className="home-content">
@@ -22,9 +27,9 @@ const Home = () => {
           </p>
           
           <div className="home-features">
-            <div className="feature">
+            <div className="feature" onClick={handleRegistroDiario} >
               <h3>📊 Registro Diário</h3>
-              <p>Anote como se sente e suas horas de sono</p>
+              <p>Clique aqui para fazer seu registro diario</p>
             </div>
             <div className="feature">
               <h3>📈 Estatísticas</h3>

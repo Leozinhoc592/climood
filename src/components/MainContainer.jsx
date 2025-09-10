@@ -20,7 +20,7 @@ const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) =
         <ListaRegistros onSelecionar={onRegistroSelecionado} mes={mes} />
       )}
       {status === "Home" && (
-        <Home />
+        <Home setStatus={onStatusChange} />
       )}
     </div>
   );
