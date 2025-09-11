@@ -22,7 +22,7 @@ function App() {
 
   const handleStatusChange = (novoStatus) => {
     setStatusMain(novoStatus);
-    if (novoStatus === "Home" || novoStatus === "Perguntas") {
+    if (novoStatus === "Home" || novoStatus === "Perguntas" || novoStatus === "Relatorio") {
       setRegistroSelecionado(null);
     }
   };
