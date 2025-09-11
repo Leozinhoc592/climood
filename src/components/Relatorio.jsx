@@ -49,9 +49,6 @@ export default function Relatorio() {
     setRelatorioFeito(false);
   };
 
-  const voltarParaHome = () => {
-    alert("Voltando para a Home...");
-  };
 
   return (
     <div className="relatorio-container">
