@@ -41,13 +41,15 @@ export default function Relatorio() {
     } else {
       console.log("Relatório final:", respostas);
       alert("Relatório salvo!");
-       localStorage.setItem("relatorioFeito", "true");;
+       setRelatorioFeito(true);
+       localStorage.setItem("relatorioFeito", "true");
     }
   };
 
   const preencherNovamente = () => {
     setRespostas([]);
     setAtual(-1);
+    setRelatorioFeito(false);
      localStorage.setItem("relatorioFeito", "false");;
   };
 
