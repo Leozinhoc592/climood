@@ -15,7 +15,9 @@ const perguntas = [
 export default function Relatorio() {
   const [atual, setAtual] = useState(-1);
   const [respostas, setRespostas] = useState([]);
-  const [relatorioFeito, setRelatorioFeito] = useState(false);
+  const [relatorioFeito, setRelatorioFeito] = useState(
+     localStorage.getItem("relatorioFeito") === "true"
+  );
 
   const responder = (resposta) => {
     const novasRespostas = [...respostas];
@@ -39,14 +41,14 @@ export default function Relatorio() {
     } else {
       console.log("Relatório final:", respostas);
       alert("Relatório salvo!");
-      setRelatorioFeito(true);
+       localStorage.setItem("relatorioFeito", "true");;
     }
   };
 
   const preencherNovamente = () => {
     setRespostas([]);
     setAtual(-1);
-    setRelatorioFeito(false);
+     localStorage.setItem("relatorioFeito", "false");;
   };
 
 
