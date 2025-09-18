@@ -2,7 +2,7 @@ import { useState } from "react";
 import './Enviar.css';
 
 export default function Enviar() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("Leozinhoc592@gmail.com");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
