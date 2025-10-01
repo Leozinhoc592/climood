@@ -7,18 +7,56 @@ export default function Enviar() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    
-    setTimeout(() => {
-      setLoading(false);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError("");
+  setSuccess(false);
+
+  console.log("Iniciando envio...");
+
+ try {
+     
+      const dadosRelatorio = JSON.parse(localStorage.getItem('dadosRelatorio') || '[]');
+      const registros = JSON.parse(localStorage.getItem('registros') || '[]');
+
+   
+      const dadosParaEnviar = {
+        relatorio: dadosRelatorio,
+        registros: registros
+      };
+
+      const response = await fetch('https://email-backend-72f6.onrender.com/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: email,
+          dados: dadosParaEnviar
+        })
+      });
+
+    console.log("Status da resposta:", response.status);
+    console.log("Resposta OK?", response.ok);
+
+    const result = await response.json();
+    console.log("Resultado completo:", result);
+
+    if (result.success) {
       setSuccess(true);
-      console.log("Email para:", email);
-      console.log("Dados do localStorage:", localStorage.getItem('dadosRelatorio'));
-    }, 2000);
-  };
+      console.log("Sucesso, email enviado.");
+    } else {
+      setError(`Erro: ${result.error}`);
+      console.log("Erro do servidor:", result.error);
+    }
+  } catch (error) {
+    console.error("Erro de conexão:", error);
+    setError("Erro de conexão com o servidor");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="enviar-container">
@@ -45,19 +83,19 @@ export default function Enviar() {
 
         {loading && (
           <div className="loading">
-            ⏳ Enviando dados...
+            Enviando dados...
           </div>
         )}
 
         {success && (
           <div className="success-message">
-            ✅ Dados enviados com sucesso para {email}!
+            Dados enviados com sucesso para {email}!
           </div>
         )}
 
         {error && (
           <div className="error-message">
-            ❌ {error}
+            {error}
           </div>
         )}
 

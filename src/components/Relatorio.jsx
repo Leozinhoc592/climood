@@ -41,6 +41,7 @@ export default function Relatorio() {
     } else {
       console.log("Relatório final:", respostas);
       alert("Relatório salvo!");
+       localStorage.setItem("dadosRelatorio", JSON.stringify(respostas));
        setRelatorioFeito(true);
        localStorage.setItem("relatorioFeito", "true");
     }
