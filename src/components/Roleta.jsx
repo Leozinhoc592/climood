@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
+import './Roleta.css';
 
 import emote1 from '../assets/emote1.png';
 import emote2 from '../assets/emote2.png';
@@ -12,30 +13,31 @@ import emote8 from '../assets/emote8.png';
 import emote9 from '../assets/emote9.png';
 import emote10 from '../assets/emote10.png';
 
-const Roleta = () => {
-  const [selected, setSelected] = useState(1);
-
+const Roleta = ({ selected: externalValue, onChange }) => {
   const emotes = [
     emote1, emote2, emote3, emote4, emote5,
     emote6, emote7, emote8, emote9, emote10,
   ];
 
+  const [localValue, setLocalValue] = useState(externalValue || 1);
+
+  useEffect(() => {
+    if (externalValue && externalValue !== localValue) {
+      setLocalValue(externalValue);
+    }
+  }, [externalValue]);
+
   const handleChange = (value) => {
-    setSelected(value);
-    localStorage.setItem('humor', value);
-    console.log('Humor selecionado:', value);
+    setLocalValue(value);
+  };
+
+  const handleRelease = () => {
+    onChange(localValue);
+    localStorage.setItem('humor', localValue);
   };
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '2rem',
-      width: '100%',
-      maxWidth: '300px',
-      position: 'relative',
-    }}>
+    <div className="roleta-container">
       <CircularSlider
         width={280}
         min={1}
@@ -44,24 +46,18 @@ const Roleta = () => {
         progressColorFrom="#dad3b5"
         progressColorTo="#8a7e5d"
         trackColor="#ccc"
-        value={selected}
+        hideLabelValue
         onChange={handleChange}
-        hideLabelValue   
+        onMouseUp={handleRelease}
+        onTouchEnd={handleRelease}
       />
 
-  
-      <div style={{
-        position: 'absolute',
-        width: '80px',
-        height: '80px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
+      <div className="roleta-center">
+        <div className="roleta-indicador">{localValue}/10</div>
         <img
-          src={emotes[selected - 1]}
-          alt={`Emote ${selected}`}
-          style={{ width: '80px', height: '80px' }}
+          src={emotes[localValue - 1]}
+          alt={`Emote ${localValue}`}
+          className="roleta-emote"
         />
       </div>
     </div>

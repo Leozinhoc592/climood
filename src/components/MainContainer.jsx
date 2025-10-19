@@ -7,13 +7,13 @@ import Enviar from './Enviar';
 import Relatorio from './Relatorio';
 
 const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) => {
- 
+  const [humor, setHumor] = useState(Number(localStorage.getItem("humor")) || 1);
 
   return (
     <div className="main-container">
       {status === "Perguntas" && (
         <>
-          <Roleta />
+          <Roleta selected={humor} onChange={setHumor} />
           <Perguntas onEnviar={() => onStatusChange("Registros")} />
         </>
       )}
@@ -21,15 +21,9 @@ const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) =
       {status === "Registros" && (
         <ListaRegistros onSelecionar={onRegistroSelecionado} mes={mes} />
       )}
-      {status === "Home" && (
-        <Home setStatus={onStatusChange} />
-      )}
-      {status === "Relatorio" && (
-        <Relatorio setStatus={onStatusChange} />
-      )}
-      {status === "Enviar" && (
-        <Enviar setStatus={onStatusChange} />
-      )}
+      {status === "Home" && <Home setStatus={onStatusChange} />}
+      {status === "Relatorio" && <Relatorio setStatus={onStatusChange} />}
+      {status === "Enviar" && <Enviar setStatus={onStatusChange} />}
     </div>
   );
 };
