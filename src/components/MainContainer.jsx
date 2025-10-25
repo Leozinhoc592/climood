@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Roleta from "./Roleta";
-import Perguntas from "./Perguntas";
-import ListaRegistros from "./ListaRegistros";
-import Home from './Home';
-import Enviar from './Enviar';
-import Relatorio from './Relatorio';
+import Roleta from "./PerguntasDiarias/Roleta";
+import Perguntas from "./PerguntasDiarias/Perguntas";
+import ListaRegistros from "./Header/Calendario/ListaRegistros";
+import Home from './Home/Home';
+import Enviar from './Header/Enviar/Enviar';
+import Relatorio from './Header/Relatorio/Relatorio';
 
 const MainContainer = ({ onRegistroSelecionado, status, onStatusChange, mes }) => {
   const [humor, setHumor] = useState(Number(localStorage.getItem("humor")) || 1);

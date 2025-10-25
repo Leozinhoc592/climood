@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
 import './Roleta.css';
 
-import emote1 from '../assets/emote1.png';
-import emote2 from '../assets/emote2.png';
-import emote3 from '../assets/emote3.png';
-import emote4 from '../assets/emote4.png';
-import emote5 from '../assets/emote5.png';
-import emote6 from '../assets/emote6.png';
-import emote7 from '../assets/emote7.png';
-import emote8 from '../assets/emote8.png';
-import emote9 from '../assets/emote9.png';
-import emote10 from '../assets/emote10.png';
+import emote1 from '../../assets/emote1.png';
+import emote2 from '../../assets/emote2.png';
+import emote3 from '../../assets/emote3.png';
+import emote4 from '../../assets/emote4.png';
+import emote5 from '../../assets/emote5.png';
+import emote6 from '../../assets/emote6.png';
+import emote7 from '../../assets/emote7.png';
+import emote8 from '../../assets/emote8.png';
+import emote9 from '../../assets/emote9.png';
+import emote10 from '../../assets/emote10.png';
 
 const Roleta = ({ selected: externalValue, onChange }) => {
   const emotes = [

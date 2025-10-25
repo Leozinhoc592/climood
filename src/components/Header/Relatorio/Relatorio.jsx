@@ -1,6 +1,6 @@
 import { useState } from "react";
-import NextButton from "../assets/next.png";
-import SaveButton from "../assets/salvar.png";
+import NextButton from "@/assets/next.png";
+import SaveButton from "@/assets/salvar.png";
 import './Relatorio.css';
 
 const perguntas = [

@@ -1,12 +1,15 @@
 import React from 'react';
-import Titulo from './Titulo';
-import Termometro from './Termometro';
-import Calendario from '../assets/calendario.png';
-import Enviar from '../assets/enviar.png';
-import Relatorio from '../assets/relatorio.png';
-import CalendarioHover from '../assets/calendario_hover.png';
-import EnviarHover from '../assets/enviar_hover.png';
-import RelatorioHover from '../assets/relatorio_hover.png';
+import Titulo from '@/components/Header/Titulo';
+import Termometro from '@/components/Header/Temperatura/Termometro';
+
+import Calendario from '@/assets/calendario.png';
+import Enviar from '@/assets/enviar.png';
+import Relatorio from '@/assets/relatorio.png';
+
+import CalendarioHover from '@/assets/calendario_hover.png';
+import EnviarHover from '@/assets/enviar_hover.png';
+import RelatorioHover from '@/assets/relatorio_hover.png';
+
 
 const Header = ({ onMudarStatus }) => {
   return (

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import MainContainer from "./components/MainContainer";
-import InfoRegistro from "./components/InfoRegistro";
-import SeletorMes from "./components/SeletorMes";
+import InfoRegistro from "./components/Header/Calendario/InfoRegistro";
+import SeletorMes from "./components/Header/Calendario/SeletorMes";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../assets/Termometro.png";
+import logo from "@/assets/Termometro.png";
 import Temperatura from "./Temperatura";
+
 
 
 const Termometro = () => {
